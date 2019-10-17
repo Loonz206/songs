@@ -20,11 +20,18 @@ const SongDetail = ({ song }) => {
   );
 };
 
+SongDetail.defaultProps = {
+  song: {
+    duration: "example",
+    title: "example title"
+  }
+};
+
 SongDetail.propTypes = {
   song: shape({
     duration: string,
     title: string
-  }).isRequired
+  })
 };
 
 const mapStateToProps = state => {
