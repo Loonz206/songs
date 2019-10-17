@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { string, func, arrayOf, shape } from "prop-types";
 import { connect } from "react-redux";
 import { selectSong } from "../actions";
 
@@ -32,6 +33,15 @@ class SongList extends Component {
     return <div className="ui divided list">{this.renderList()}</div>;
   }
 }
+
+SongList.propTypes = {
+  songs: arrayOf(
+    shape({
+      title: string
+    })
+  ).isRequired,
+  selectSong: func.isRequired
+};
 
 // Convention for wiring up state to components
 const mapStateToProps = state => {

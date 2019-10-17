@@ -1,4 +1,5 @@
 import React from "react";
+import { shape, string } from "prop-types";
 import { connect } from "react-redux";
 
 const SongDetail = ({ song }) => {
@@ -17,6 +18,13 @@ const SongDetail = ({ song }) => {
       </p>
     </div>
   );
+};
+
+SongDetail.propTypes = {
+  song: shape({
+    duration: string,
+    title: string
+  }).isRequired
 };
 
 const mapStateToProps = state => {
