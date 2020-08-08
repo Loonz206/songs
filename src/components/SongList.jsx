@@ -1,16 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { string, func, arrayOf, shape } from "prop-types";
 import { connect } from "react-redux";
 import { selectSong } from "../actions";
 
-class SongList extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  renderList() {
-    const { songs, selectSong } = this.props;
+const SongList = ({ songs, selectSong }) => {
+  const renderList = () => {
     return songs.map(song => {
       return (
         <div className="item" key={song.title}>
@@ -27,12 +21,9 @@ class SongList extends Component {
         </div>
       );
     });
-  }
-
-  render() {
-    return <div className="ui divided list">{this.renderList()}</div>;
-  }
-}
+  };
+  return <div className="ui divided list">{renderList()}</div>;
+};
 
 SongList.propTypes = {
   songs: arrayOf(
